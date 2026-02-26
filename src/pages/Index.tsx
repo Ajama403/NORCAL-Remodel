@@ -4,15 +4,14 @@ import Hero from "@/components/Hero";
 import ValueProps from "@/components/ValueProps";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import WhyUs from "@/components/WhyUs";
 import Process from "@/components/Process";
 import CTABanner from "@/components/CTABanner";
 import Gallery from "@/components/Gallery";
 import Reviews from "@/components/Reviews";
 import ServiceArea from "@/components/ServiceArea";
 import FAQ from "@/components/FAQ";
-import Blog from "@/components/Blog";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
 import site from "@/content/siteConfig";
 
 const Index = () => {
@@ -45,8 +44,8 @@ const Index = () => {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "10:00",
-        closes: "17:00",
+        opens: "07:00",
+        closes: "18:00",
       },
     ],
     sameAs: [
@@ -85,15 +84,14 @@ const Index = () => {
         <ValueProps />
         <About />
         <Services />
+        <WhyUs />
         <Process />
         <CTABanner />
         <Gallery />
         <Reviews />
         <ServiceArea />
         <FAQ />
-        <Blog />
         <Footer />
-        <ChatWidget />
       </main>
     </>
   );

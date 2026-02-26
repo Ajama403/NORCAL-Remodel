@@ -15,58 +15,29 @@ const Reviews = () => {
   const visibleReviews = showAll ? allReviews : allReviews.slice(0, 6);
 
   return (
-    <section id="reviews" className="py-24 bg-background">
+    <section id="reviews" className="py-24 bg-[#1a1a1a]">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Reviews</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
-            Reviews
-            <span className="text-gradient"> from {site.baseCity} homeowners</span>
+          <span className="text-[#2ECC71] font-semibold uppercase tracking-wider text-sm">Reviews</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
+            What Our Clients Say
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Rated {site.ratingValue} by Orange County homeowners ({site.reviewCount} reviews).
+          <p className="text-white/70 text-lg">
+            Rated {site.ratingValue} by homeowners across {site.baseCity} and surrounding areas.
           </p>
         </div>
 
         {/* Aggregate Rating */}
         <div className="text-center mb-12">
-          <div className="inline-flex flex-col items-center bg-card p-8 rounded-2xl shadow-card">
+          <div className="inline-flex flex-col items-center bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
             <div className="flex items-center gap-1 mb-2">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-secondary fill-secondary" />
+                <Star key={i} className="w-6 h-6 text-[#2ECC71] fill-[#2ECC71]" />
               ))}
             </div>
-            <div className="text-5xl font-bold text-foreground mb-1">{site.ratingValue}</div>
-            <div className="text-muted-foreground text-sm">Based on {site.reviewCount} Google reviews</div>
-          </div>
-        </div>
-
-        {/* Social Proof Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-8 mb-12">
-          <div className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-card">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
-              alt="Google Reviews"
-              className="w-10 h-10"
-            />
-            <div>
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-secondary fill-secondary" />
-                ))}
-              </div>
-              <span className="text-sm font-semibold text-card-foreground">{site.ratingValue}-Star Google Rating</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-card">
-            <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center">
-              <Star className="w-6 h-6 text-secondary" />
-            </div>
-            <div>
-              <span className="text-lg font-bold text-card-foreground block">{site.businessHours.shortDisplay}</span>
-              <span className="text-sm text-muted-foreground">Call/Text {site.phoneDisplay}</span>
-            </div>
+            <div className="text-5xl font-bold text-white mb-1">{site.ratingValue}</div>
+            <div className="text-white/60 text-sm">Based on {site.reviewCount} reviews</div>
           </div>
         </div>
 
@@ -75,22 +46,22 @@ const Reviews = () => {
           {visibleReviews.map((review, index) => (
             <div
               key={index}
-              className="bg-card p-8 rounded-2xl shadow-card hover:shadow-elegant transition-shadow"
+              className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-[#2ECC71]/30 transition-colors"
             >
-              <Quote className="w-10 h-10 text-secondary/30 mb-4" />
+              <Quote className="w-10 h-10 text-[#2ECC71]/30 mb-4" />
 
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-secondary fill-secondary" />
+                  <Star key={i} className="w-5 h-5 text-[#2ECC71] fill-[#2ECC71]" />
                 ))}
               </div>
 
-              <p className="text-muted-foreground leading-relaxed mb-6">"{review.text}"</p>
+              <p className="text-white/80 leading-relaxed mb-6">"{review.text}"</p>
 
-              <div className="border-t border-border pt-4">
-                <div className="font-bold text-card-foreground">{review.name}</div>
-                <div className="text-sm text-muted-foreground">{review.location}</div>
-                <div className="text-sm text-secondary font-medium mt-1">{review.project}</div>
+              <div className="border-t border-white/10 pt-4">
+                <div className="font-bold text-white">{review.name}</div>
+                <div className="text-sm text-white/50">{review.location}</div>
+                <div className="text-sm text-[#2ECC71] font-medium mt-1">{review.project}</div>
               </div>
             </div>
           ))}
@@ -101,13 +72,13 @@ const Reviews = () => {
           {!showAll && allReviews.length > 6 && (
             <Button
               variant="outline"
-              className="font-semibold"
+              className="font-semibold border-white/30 text-white hover:bg-white/10"
               onClick={() => setShowAll(true)}
             >
               See All {allReviews.length} Reviews
             </Button>
           )}
-          <Button className="bg-gradient-gold text-primary-foreground hover:opacity-90 font-semibold h-12 px-8" asChild>
+          <Button className="bg-[#2ECC71] hover:bg-[#27AE60] text-white font-semibold h-12 px-8" asChild>
             <a
               href={site.links.googleReviews}
               target="_blank"

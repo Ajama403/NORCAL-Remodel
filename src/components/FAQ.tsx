@@ -50,7 +50,7 @@ const FAQ = () => {
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">Still have questions?</p>
           <Button
-            className="bg-gradient-gold text-primary-foreground hover:opacity-90 font-semibold h-12 px-8"
+            className="bg-[#2ECC71] hover:bg-[#27AE60] text-white font-semibold h-12 px-8"
             asChild
           >
             <a href={`tel:${site.phoneTel}`} className="flex items-center gap-2">
